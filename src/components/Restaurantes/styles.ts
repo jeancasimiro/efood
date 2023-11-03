@@ -54,13 +54,18 @@ export const TituloNota = styled.div`
   }
 `
 export const Botao = styled.button`
+  text-decoration: none;
   background-color: ${cores.salmao};
   color: ${cores.begeClaro};
-  font-weight: 500;
+  font-weight: 700;
   border: none;
   padding: 4px 6px;
   font-size: 14px;
   margin: 8px;
+
+  a {
+    color: ${cores.begeClaro};
+  }
 `
 
 export const Tag1 = styled.div`
