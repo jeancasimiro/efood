@@ -31,16 +31,16 @@ export const Infos = styled.div`
     font-size: 14px;
     line-height: 19px;
     padding: 8px;
+    padding-top: 16px;
   }
 `
 
 export const TituloNota = styled.div`
-  font-size: 18px;
   display: flex;
   justify-content: space-between;
-  padding-bottom: 8px;
 
   h3 {
+    font-size: 18px;
     padding-left: 8px;
     padding-top: 8px;
   }
@@ -50,6 +50,7 @@ export const TituloNota = styled.div`
 
     img {
       padding: 8px;
+      padding-bottom: 0px;
     }
   }
 `
