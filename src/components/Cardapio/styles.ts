@@ -51,4 +51,78 @@ export const Botao = styled.button`
   width: 304px;
   height: 24px;
   font-size: 14px;
+  cursor: pointer;
+`
+export const JanelaModal = styled.div``
+
+export const Modal = styled.div`
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  &.visivel {
+    display: flex;
+  }
+
+  .container {
+    max-width: 1024px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.73);
+  }
+`
+
+export const ModalContent = styled.div`
+  background-color: ${cores.salmao};
+  display: flex;
+  padding: 32px;
+  position: relative;
+  z-index: 1;
+
+  .foto {
+    height: 280px;
+  }
+
+  .desc {
+    color: #fff;
+    margin-left: 24px;
+
+    h3 {
+      font-size: 18px;
+      line-height: 21.09px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      margin-bottom: 16px;
+    }
+
+    .botaozin {
+      margin: 0px;
+      width: 218px;
+    }
+  }
+
+  .fechar {
+    position: absolute;
+    cursor: pointer;
+    top: 8px;
+    right: 8px;
+  }
 `

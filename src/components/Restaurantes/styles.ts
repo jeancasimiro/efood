@@ -22,14 +22,16 @@ export const Infos = styled.div`
   overflow: hidden;
   position: relative;
   margin-bottom: 48px;
+  height: 398px;
 
-  img {
-    max-width: 100%;
+  .capa {
+    width: 100%;
+    height: 217px;
   }
 
   p {
     font-size: 14px;
-    line-height: 19px;
+    line-height: 22px;
     padding: 8px;
     padding-top: 16px;
   }
@@ -49,12 +51,14 @@ export const TituloNota = styled.div`
     display: flex;
 
     img {
+      max-width: 100%;
       padding: 8px;
       padding-bottom: 0px;
     }
   }
 `
 export const Botao = styled.button`
+  position: absolute;
   text-decoration: none;
   background-color: ${cores.salmao};
   color: ${cores.begeClaro};
@@ -62,7 +66,8 @@ export const Botao = styled.button`
   border: none;
   padding: 4px 6px;
   font-size: 14px;
-  margin: 8px;
+  bottom: 8px;
+  left: 8px;
 
   a {
     color: ${cores.begeClaro};
@@ -85,5 +90,5 @@ export const Tag2 = styled.div`
   padding: 6px 10px;
   position: absolute;
   top: 16px;
-  right: 96px;
+  right: 83px;
 `
