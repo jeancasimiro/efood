@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
-import Trattoria from './pages/Trattoria'
+import Rest from './pages/Restaurante'
 
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/trattoria" element={<Trattoria />} />
+    <Route path="/restaurantes/:id" element={<Rest />} />
   </Routes>
 )
 

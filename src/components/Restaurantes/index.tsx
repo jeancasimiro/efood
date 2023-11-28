@@ -45,7 +45,7 @@ const Restaurantes = ({ restaurante }: Props) => {
               </TituloNota>
               <p>{getDescricao(resta.descricao)}</p>
               <Botao>
-                <Link to="/trattoria">Saiba mais</Link>
+                <Link to={`/restaurantes/${resta.id}`}>Saiba mais</Link>
               </Botao>
             </Infos>
           </div>

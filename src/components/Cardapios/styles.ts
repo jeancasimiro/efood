@@ -15,6 +15,7 @@ export const List = styled.ul`
 `
 
 export const Infos = styled.div`
+  position: relative;
   background-color: ${cores.salmao};
   width: 320px;
   height: 338px;
@@ -23,6 +24,8 @@ export const Infos = styled.div`
 
 export const Imagem = styled.img`
   padding: 8px;
+  width: 100%;
+  height: 167px;
 `
 
 export const Comida = styled.h3`
@@ -42,6 +45,20 @@ export const Ingredientes = styled.p`
 `
 
 export const Botao = styled.button`
+  position: absolute;
+  background-color: ${cores.begeEscuro};
+  color: ${cores.salmao};
+  margin-top: 4px;
+  font-weight: 700;
+  border: none;
+  width: 304px;
+  height: 24px;
+  font-size: 14px;
+  cursor: pointer;
+  bottom: 8px;
+  left: 8px;
+`
+export const Botao2 = styled.button`
   background-color: ${cores.begeEscuro};
   color: ${cores.salmao};
   margin: 8px;
@@ -53,8 +70,6 @@ export const Botao = styled.button`
   font-size: 14px;
   cursor: pointer;
 `
-export const JanelaModal = styled.div``
-
 export const Modal = styled.div`
   display: flex;
   position: fixed;
@@ -125,4 +140,28 @@ export const ModalContent = styled.div`
     top: 8px;
     right: 8px;
   }
+`
+
+export const Back = styled.div`
+  height: 280px;
+  background-size: cover;
+  background-position: center center;
+`
+
+export const Overlay = styled.h2`
+  height: 100%;
+  backdrop-filter: brightness(40%);
+`
+
+export const Culinaria = styled.h2`
+  color: #fff;
+  font-weight: 100;
+  font-size: 32px;
+  padding-top: 25px;
+`
+export const Restaurantee = styled.h2`
+  color: #fff;
+  font-weight: 900;
+  font-size: 32px;
+  padding-top: 150px;
 `
