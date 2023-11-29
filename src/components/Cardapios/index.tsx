@@ -1,8 +1,4 @@
-import marguerita from '../../assets/images/image3.png'
-import marguerita2 from '../../assets/images/marguerita.png'
 import fechar from '../../assets/images/close1.png'
-
-import italianaFundo from '../../assets/images/image2.png'
 
 import {
   Culinaria,
@@ -14,6 +10,7 @@ import {
   Comida,
   Container,
   Imagem,
+  Imagem2,
   Ingredientes,
   List,
   Infos,
@@ -22,7 +19,7 @@ import {
 } from './styles'
 import { useEffect, useState } from 'react'
 
-import { Restaurante } from '../../pages/Home'
+import { ItemCardapio, Restaurante } from '../../pages/Home'
 import { useParams } from 'react-router-dom'
 import { url } from 'inspector'
 
@@ -35,7 +32,9 @@ const Cardapios = () => {
   }
 
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
-  const [itemId, setItemId] = useState(Number)
+  const [itemSelecionado, setItemSelecionado] = useState<ItemCardapio | null>(
+    null
+  )
 
   const { id } = useParams()
 
@@ -64,7 +63,7 @@ const Cardapios = () => {
 
       <Container>
         <List>
-          {car.cardapio.map((card) => (
+          {car.cardapio.map((card: ItemCardapio) => (
             <div key={card.id}>
               <Infos>
                 <Imagem src={card.foto} />
@@ -73,7 +72,7 @@ const Cardapios = () => {
                 <Botao
                   onClick={() => {
                     setModalEstaAberto(true)
-                    setItemId(card.id)
+                    setItemSelecionado(card)
                   }}
                 >
                   Adicionar ao carrinho
@@ -87,39 +86,40 @@ const Cardapios = () => {
         <div className="container">
           <ModalContent>
             <div className="foto">
-              <img src={marguerita2} />
+              <Imagem2 src={itemSelecionado ? itemSelecionado.foto : ''} />
             </div>
             <div className="desc">
-              <h3>Pizza Marguerita</h3>
+              <h3>{itemSelecionado ? itemSelecionado.nome : ''}</h3>
               <p>
-                A pizza Margherita é uma pizza clássica da culinária italiana,
-                reconhecida por sua simplicidade e sabor inigualável. Ela é
-                feita com uma base de massa fina e crocante, coberta com molho
-                de tomate fresco, queijo mussarela de alta qualidade, manjericão
-                fresco e azeite de oliva extra-virgem. A combinação de sabores é
-                perfeita, com o molho de tomate suculento e ligeiramente ácido,
-                o queijo derretido e cremoso e as folhas de manjericão frescas,
-                que adicionam um toque de sabor herbáceo. É uma pizza simples,
-                mas deliciosa, que agrada a todos os paladares e é uma ótima
-                opção para qualquer ocasião.
+                {itemSelecionado ? itemSelecionado.descricao : ''}
                 <br />
                 <br />
-                Serve: de 2 a 3 pessoas
+                Serve: {itemSelecionado ? itemSelecionado.porcao : ''}
               </p>
               <Botao2 className="botaozin">
-                Adicionar ao carrinho - R$ 60,90
+                Adicionar ao carrinho - R${' '}
+                {itemSelecionado ? itemSelecionado.preco : ''}0
               </Botao2>
             </div>
             <div className="fechar">
               <img
                 src={fechar}
                 alt="Fechar"
-                onClick={() => setModalEstaAberto(false)}
+                onClick={() => {
+                  setModalEstaAberto(false)
+                  setItemSelecionado(null)
+                }}
               />
             </div>
           </ModalContent>
         </div>
-        <div className="overlay"></div>
+        <div
+          onClick={() => {
+            setModalEstaAberto(false)
+            setItemSelecionado(null)
+          }}
+          className="overlay"
+        ></div>
       </Modal>
     </>
   )

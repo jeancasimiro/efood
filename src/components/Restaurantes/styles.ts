@@ -25,6 +25,7 @@ export const Infos = styled.div`
   height: 398px;
 
   .capa {
+    object-fit: cover;
     width: 100%;
     height: 217px;
   }

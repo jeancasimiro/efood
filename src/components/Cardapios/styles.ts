@@ -23,6 +23,7 @@ export const Infos = styled.div`
 `
 
 export const Imagem = styled.img`
+  object-fit: cover;
   padding: 8px;
   width: 100%;
   height: 167px;
@@ -108,6 +109,7 @@ export const ModalContent = styled.div`
 
   .foto {
     height: 280px;
+    max-width: 280px;
   }
 
   .desc {
@@ -140,6 +142,11 @@ export const ModalContent = styled.div`
     top: 8px;
     right: 8px;
   }
+`
+export const Imagem2 = styled.img`
+  object-fit: cover;
+  width: 280px;
+  height: 280px;
 `
 
 export const Back = styled.div`
