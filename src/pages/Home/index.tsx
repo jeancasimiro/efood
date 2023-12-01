@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Restaurantes from '../../components/Restaurantes'
+
+import { useGetRestaurantQuery } from '../../services/api'
 
 export type Restaurante = {
   id: number
@@ -23,20 +24,18 @@ export type ItemCardapio = {
 }
 
 const Home = () => {
-  const [rest, setRest] = useState<Restaurante[]>([])
+  const { data: rest } = useGetRestaurantQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setRest(res))
-  }, [])
+  if (rest) {
+    return (
+      <>
+        <Header />
+        <Restaurantes restaurante={rest} />
+      </>
+    )
+  }
 
-  return (
-    <>
-      <Header />
-      <Restaurantes restaurante={rest} />
-    </>
-  )
+  return <h4>Carregando...</h4>
 }
 
 export default Home

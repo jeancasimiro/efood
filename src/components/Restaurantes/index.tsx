@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import italiana from '../../assets/images/image1.png'
 import estrela from '../../assets/images/estrela.png'
-import japonesa from '../../assets/images/imagem.png'
-
 import { List, Container, TituloNota, Infos, Botao, Tag1, Tag2 } from './styles'
 import { Restaurante } from '../../pages/Home'
 

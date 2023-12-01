@@ -17,13 +17,29 @@ import {
   Modal,
   ModalContent
 } from './styles'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { ItemCardapio, Restaurante } from '../../pages/Home'
 import { useParams } from 'react-router-dom'
-import { url } from 'inspector'
+import { useGetCardapioQuery } from '../../services/api'
+import { useDispatch } from 'react-redux'
+
+import { add, open } from '../../store/reducers/cart'
+
+export type Props = {
+  restaurante: Restaurante | undefined
+}
 
 const Cardapios = () => {
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    if (itemSelecionado) {
+      dispatch(add(itemSelecionado))
+      dispatch(open())
+    }
+  }
+
   const getDescricao = (descricao: string) => {
     if (descricao.length > 170) {
       return descricao.slice(0, 164) + '...'
@@ -37,14 +53,7 @@ const Cardapios = () => {
   )
 
   const { id } = useParams()
-
-  const [car, setCar] = useState<Restaurante>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setCar(res))
-  }, [id])
+  const { data: car } = useGetCardapioQuery(id!)
 
   if (!car) {
     return <h3>Carregando...</h3>
@@ -96,7 +105,7 @@ const Cardapios = () => {
                 <br />
                 Serve: {itemSelecionado ? itemSelecionado.porcao : ''}
               </p>
-              <Botao2 className="botaozin">
+              <Botao2 className="botaozin" onClick={addToCart}>
                 Adicionar ao carrinho - R${' '}
                 {itemSelecionado ? itemSelecionado.preco : ''}0
               </Botao2>

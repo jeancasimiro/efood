@@ -13,17 +13,18 @@ export const Container = styled.div`
 
 export const Logo = styled.img`
   position: absolute;
-  padding-top: 63px;
+  margin-top: 63px;
 `
 
 export const Restaurantes = styled.a`
-  padding-top: 82px;
+  margin-top: 82px;
   font-size: 18px;
   font-weight: bold;
   color: ${cores.salmao};
 `
-export const Carrinho = styled.p`
-  padding-top: 82px;
+export const Carrinho = styled.a`
+  cursor: pointer;
+  margin-top: 82px;
   font-size: 18px;
   font-weight: bold;
 `
