@@ -1,9 +1,12 @@
-import logo from '../../assets/images/logo.png'
+import { Logo } from '../Header/styles'
+import React from 'react'
+
+import { Container, Icones, Sociais } from './styles'
+
 import facebook from '../../assets/images/facebook.png'
 import instagram from '../../assets/images/instagram.png'
+import logo from '../../assets/images/logo.png'
 import twitter from '../../assets/images/twitter.png'
-import { Logo } from '../Header/styles'
-import { Container, Sociais, Icones } from './styles'
 
 const Footer = () => (
   <Container>

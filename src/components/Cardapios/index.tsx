@@ -1,37 +1,41 @@
-import fechar from '../../assets/images/close1.png'
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
+
+import { add, open } from '../../store/reducers/cart'
+import { useGetCardapioQuery } from '../../services/api'
 
 import {
-  Culinaria,
-  Overlay,
-  Restaurantee,
   Back,
   Botao,
   Botao2,
   Comida,
   Container,
+  Culinaria,
   Imagem,
   Imagem2,
   Ingredientes,
-  List,
   Infos,
+  List,
   Modal,
-  ModalContent
+  ModalContent,
+  Overlay,
+  Restaurantee
 } from './styles'
-import { useState } from 'react'
 
-import { ItemCardapio, Restaurante } from '../../pages/Home'
-import { useParams } from 'react-router-dom'
-import { useGetCardapioQuery } from '../../services/api'
-import { useDispatch } from 'react-redux'
-
-import { add, open } from '../../store/reducers/cart'
-
-export type Props = {
-  restaurante: Restaurante | undefined
-}
+import fechar from '../../assets/images/close1.png'
+import Loader from '../Loader'
 
 const Cardapios = () => {
   const dispatch = useDispatch()
+
+  const [modalEstaAberto, setModalEstaAberto] = useState(false)
+  const [itemSelecionado, setItemSelecionado] = useState<ItemCardapio | null>(
+    null
+  )
+
+  const { id } = useParams()
+  const { data: car, isLoading } = useGetCardapioQuery(id!)
 
   const addToCart = () => {
     if (itemSelecionado) {
@@ -47,16 +51,8 @@ const Cardapios = () => {
     return descricao
   }
 
-  const [modalEstaAberto, setModalEstaAberto] = useState(false)
-  const [itemSelecionado, setItemSelecionado] = useState<ItemCardapio | null>(
-    null
-  )
-
-  const { id } = useParams()
-  const { data: car } = useGetCardapioQuery(id!)
-
-  if (!car) {
-    return <h3>Carregando...</h3>
+  if (isLoading || !car) {
+    return <Loader />
   }
 
   return (

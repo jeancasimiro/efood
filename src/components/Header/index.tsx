@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
-import { Frase, Back, Logo } from './styles'
+import { Back, Frase, Logo } from './styles'
 
-import logo from '../../assets/images/logo.png'
 import fundo from '../../assets/images/Vector.png'
+import logo from '../../assets/images/logo.png'
 
 const Header = () => (
   <Back style={{ backgroundImage: `url(${fundo})` }}>

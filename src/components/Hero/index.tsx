@@ -1,4 +1,5 @@
 import italianaFundo from '../../assets/images/image2.png'
+
 import { Back, Culinaria, Overlay, Restaurante, Container } from './styles'
 
 const Hero = () => (

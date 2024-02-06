@@ -1,5 +1,5 @@
 import Cardapios from '../../components/Cardapios'
-import Checkout from '../../components/Checkout'
+import Cart from '../../components/Cart'
 import HeaderSec from '../../components/HeaderSec'
 
 const Rest = () => {
@@ -7,7 +7,7 @@ const Rest = () => {
     <>
       <HeaderSec />
       <Cardapios />
-      <Checkout />
+      <Cart />
     </>
   )
 }

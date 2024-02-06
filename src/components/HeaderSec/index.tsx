@@ -1,13 +1,12 @@
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { Back, Logo, Restaurantes, Carrinho, Container } from './styles'
+import { Back, Carrinho, Container, Logo, Restaurantes } from './styles'
+import { open } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
 
 import fundo from '../../assets/images/Vector.png'
 import logo from '../../assets/images/logo.png'
-
-import { open } from '../../store/reducers/cart'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootReducer } from '../../store'
 
 const HeaderSec = () => {
   const dispatch = useDispatch()

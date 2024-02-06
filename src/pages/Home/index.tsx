@@ -3,17 +3,6 @@ import Restaurantes from '../../components/Restaurantes'
 
 import { useGetRestaurantQuery } from '../../services/api'
 
-export type Restaurante = {
-  id: number
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: ItemCardapio[]
-}
-
 export type ItemCardapio = {
   foto: string
   preco: number
@@ -24,18 +13,14 @@ export type ItemCardapio = {
 }
 
 const Home = () => {
-  const { data: rest } = useGetRestaurantQuery()
+  const { data: rest, isLoading } = useGetRestaurantQuery()
 
-  if (rest) {
-    return (
-      <>
-        <Header />
-        <Restaurantes restaurante={rest} />
-      </>
-    )
-  }
-
-  return <h4>Carregando...</h4>
+  return (
+    <>
+      <Header />
+      <Restaurantes restaurante={rest} isLoading={isLoading} />
+    </>
+  )
 }
 
 export default Home
