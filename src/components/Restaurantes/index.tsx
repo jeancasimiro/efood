@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 
 import estrela from '../../assets/images/estrela.png'
-import Loader from '../Loader'
 import { Botao, Container, Infos, List, Tag1, Tag2, TituloNota } from './styles'
 
 export type Props = {
@@ -18,7 +17,7 @@ const Restaurantes = ({ restaurante, isLoading }: Props) => {
   }
 
   if (isLoading) {
-    return <Loader />
+    return <h4>Carregando...</h4>
   }
 
   return (
