@@ -24,6 +24,7 @@ import {
 } from './styles'
 
 import fechar from '../../assets/images/close1.png'
+import Loader from '../Loader'
 
 const Cardapios = () => {
   const dispatch = useDispatch()
@@ -51,7 +52,7 @@ const Cardapios = () => {
   }
 
   if (isLoading || !car) {
-    return <h4>Carregando...</h4>
+    return <Loader />
   }
 
   return (
